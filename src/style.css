@@ -1,0 +1,261 @@
+@define-color bg_primary #120f1d;
+@define-color bg_secondary #181525;
+@define-color bg_tertiary #211d33;
+@define-color bg_quaternary #322d47;
+
+@define-color accent #7a66ff;
+@define-color accent_hover #8f7dff;
+@define-color accent_secondary #2c2840;
+@define-color accent_tertiary #3b3655;
+@define-color accent_quaternary #4c4669;
+@define-color accent_quinary #4fa3d9;
+@define-color accent_senary #c154b6;
+@define-color accent_septenary #6b56e8;
+
+@define-color text_primary #f0eef7;
+@define-color text_secondary #bbb7cc;
+@define-color text_tertiary #9f9bb1;
+
+@define-color card_glass rgba(122, 102, 255, 0.18);
+
+/* Base Window */
+window.litera-window {
+  background-color: transparent;
+  color: @text_primary;
+}
+
+/* Root Layout: Outer borders, no inner radius between panels */
+.litera-root {
+  background-color: @card_glass;
+  padding: 0;
+  margin: 0;
+  border: 1px solid @accent_secondary;
+  border-radius: 1rem;
+}
+
+/* Minimal Top Menu Bar: Flush, compact, seamlessly integrated */
+.litera-menubar {
+  background-color: rgba(18, 15, 29, 0.96);
+  border-bottom: 1px solid @accent_secondary;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  padding: 0 4px;
+  margin: 0;
+  min-height: 28px;
+}
+
+/* Reset default GTK MenuButton styling to prevent double-button appearance */
+menubutton.litera-menu-btn,
+menubutton.litera-menu-btn > button {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 4px;
+  color: @text_secondary;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 2px 8px;
+  margin: 2px 1px;
+  min-height: 24px;
+  min-width: 0;
+  transition: all 120ms ease;
+}
+
+menubutton.litera-menu-btn > button:hover {
+  background-color: @bg_tertiary;
+  color: @text_primary;
+}
+
+menubutton.litera-menu-btn > button:active,
+menubutton.litera-menu-btn > button:checked {
+  background-color: @accent;
+  color: #ffffff;
+}
+
+/* Main Paned Container: Flat, connected without inner rounded corners */
+paned.litera-paned {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+/* Panels: Direct seamless connection to paned and separator, zero inner radius */
+.litera-panel {
+  background-color: rgba(24, 21, 37, 0.82);
+  border: none;
+  border-radius: 0;
+  margin: 0;
+}
+
+/* Terminal Widget VTE: Transparent pass-through to litera-panel */
+vte-terminal,
+terminal,
+.litera-panel vte-terminal {
+  background-color: transparent;
+}
+
+.litera-panel-header {
+  background-color: rgba(33, 29, 51, 0.95);
+  border-bottom: 1px solid @accent_secondary;
+  padding: 4px 8px;
+  border-radius: 0;
+  min-height: 30px;
+}
+
+.litera-panel-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: @text_secondary;
+  letter-spacing: 0.6px;
+}
+
+/* Path Bar (Editable entry) */
+entry.litera-path-bar {
+  background-color: rgba(24, 21, 37, 0.85);
+  border: 1px solid @accent_secondary;
+  border-radius: 6px;
+  padding: 2px 8px;
+  color: @text_primary;
+  font-family: monospace;
+  font-size: 0.82rem;
+  min-height: 24px;
+  margin: 0 4px;
+  transition: border-color 150ms ease;
+}
+
+entry.litera-path-bar:focus {
+  border-color: @accent;
+  background-color: rgba(33, 29, 51, 0.95);
+}
+
+/* Icon Buttons in header */
+.litera-icon-btn {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: @text_secondary;
+  padding: 2px 5px;
+  min-height: 24px;
+  min-width: 24px;
+}
+
+.litera-icon-btn:hover {
+  background-color: @bg_quaternary;
+  border-color: @accent_secondary;
+  color: @text_primary;
+}
+
+/* Paned Separator Slider: flush 1px border style */
+paned > separator {
+  background-color: @accent_secondary;
+  min-width: 4px;
+  min-height: 4px;
+  margin: 0;
+  padding: 0;
+  transition: background-color 150ms ease;
+}
+
+paned > separator:hover {
+  background-color: @accent;
+}
+
+/* File Manager List */
+.litera-file-list {
+  background-color: transparent;
+  color: @text_primary;
+}
+
+.litera-file-row {
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin: 1px 4px;
+  transition: background-color 100ms ease;
+}
+
+.litera-file-row:hover {
+  background-color: rgba(50, 45, 71, 0.45);
+}
+
+.litera-file-row:selected, .litera-file-row.selected {
+  background-color: @accent_tertiary;
+  border: 1px solid @accent_septenary;
+  color: @text_primary;
+}
+
+.litera-file-icon {
+  margin-right: 6px;
+}
+
+.litera-file-name {
+  font-size: 0.88rem;
+  color: @text_primary;
+}
+
+.litera-file-meta {
+  font-size: 0.76rem;
+  color: @text_tertiary;
+}
+
+/* Status Bar: Flat bottom with bottom radius */
+.litera-status-bar {
+  background-color: rgba(18, 15, 29, 0.9);
+  border-top: 1px solid @accent_secondary;
+  border-radius: 0;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  color: @text_tertiary;
+}
+
+/* Clean Popovers: Remove GTK popover default box/arrow/shadow and style contents only */
+popover,
+popover.background {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+popover > contents {
+  background-color: @bg_secondary;
+  border: 1px solid @accent_secondary;
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+popover button {
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: @text_primary;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  min-height: 24px;
+}
+
+popover button:hover {
+  background-color: @accent_tertiary;
+  color: #ffffff;
+}
+
+/* Scrollbars */
+scrollbar trough {
+  background-color: transparent;
+}
+
+scrollbar slider {
+  background-color: @accent_secondary;
+  border-radius: 999px;
+  min-width: 5px;
+  min-height: 5px;
+}
+
+scrollbar slider:hover {
+  background-color: @accent_quaternary;
+}
+
+scrollbar slider:active {
+  background-color: @accent;
+}

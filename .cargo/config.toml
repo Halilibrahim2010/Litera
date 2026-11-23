@@ -1,0 +1,5 @@
+[build]
+rustflags = ["-C", "link-args=-Wl,-rpath,/home/halilibrahim/.local/opt/vte-gtk4/usr/lib/x86_64-linux-gnu"]
+
+[env]
+PKG_CONFIG_PATH = "/home/halilibrahim/.local/opt/vte-gtk4/usr/lib/x86_64-linux-gnu/pkgconfig"
